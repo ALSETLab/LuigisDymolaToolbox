@@ -263,21 +263,23 @@ Run")}),    preferredView="info");
 Mode")}),    preferredView="info");
     end DAEMode;
 
-    package PlotDownsample "Downsample plotting, enable or disable"
+    package PlotPerformance "Enable or disable plot performance"
 
-      function downsamplePlottingON "Enable flag for downsampling"
+      function PlottingPeformanceON
+        "Disable some plot features to enhance performance."
+        extends Modelica.Icons.Function;
+        input Integer n = 50000 "No. of points in plot";
+      algorithm
+        Advanced.Plot.PerformanceLimit :=50000;
+        Modelica.Utilities.Streams.print("Disabling some plot features to enhance performance if number of points in plot is more than:" + String(n));
+      end PlottingPeformanceON;
+
+      function PlottingPeformanceOFF "Reset plot performance enhacement."
         extends Modelica.Icons.Function;
       algorithm
-        Advanced.Beta.Plot.DownsampleLimit :=4;
-        Modelica.Utilities.Streams.print("Plotting downsampling is enabled.");
-      end downsamplePlottingON;
-
-      function downsamplePlottingOFF "Disable flag for downsampling"
-        extends Modelica.Icons.Function;
-      algorithm
-        Advanced.Beta.Plot.DownsampleLimit := 0;
-        Modelica.Utilities.Streams.print("Plotting downsampling is disabled.");
-      end downsamplePlottingOFF;
+        Advanced.Plot.PerformanceLimit :=300000;
+        Modelica.Utilities.Streams.print("Plotting performance enhacement has been reset.");
+      end PlottingPeformanceOFF;
       annotation (Icon(graphics={
             Rectangle(
               lineColor={200,200,200},
@@ -293,7 +295,7 @@ Mode")}),    preferredView="info");
               color={0,86,134},
               thickness=0.5,
               smooth=Smooth.Bezier)}),preferredView="info");
-    end PlotDownsample;
+    end PlotPerformance;
 
     package Functions "Specialized Functions for Various Purposeds"
 
