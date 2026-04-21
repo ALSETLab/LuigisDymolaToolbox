@@ -84414,7 +84414,8 @@ Mode")}),    preferredView="info");
           extent={{-100,100},{100,-100}},
           lineColor={223,223,223},
           fillColor={215,215,215},
-          fillPattern=FillPattern.Solid),
+          fillPattern=FillPattern.Solid,
+          lineThickness=1),
         Rectangle(
           extent={{-40,10},{20,-40}},
           lineColor={1,167,57},
