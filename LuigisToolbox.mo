@@ -84406,9 +84406,8 @@ Mode")}),    preferredView="info");
 </html>"),  preferredView="info");
   end CustomComponents;
   annotation (uses(
-      Modelica(version="4.0.0"),
-      DymolaCommands(version="1.16"),
-      OpenIPSL(version="3.1.0-dev")), Icon(coordinateSystem(grid={1,1}),
+      Modelica(version="4.1.0"),
+      DymolaCommands(version="1.16")), Icon(coordinateSystem(grid={1,1}),
                                            graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
